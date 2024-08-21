@@ -17,9 +17,8 @@ const GSharpMinorChord = CSharpMinorChord.getDominant()
 *Get triad of the chord*
 ```javascript
 const CSharpMinorTriad = Chord.fromString('Cm#').getTriad()
-CSharpMinorTriad.map((note: Note) => {
-    note.toString()
-}).join(',') // 'C#,E,G#'
+
+CSharpMinorTriad.map((note: Note) => note.toString()).join(',') // 'C#,E,G#'
 
 ```
 
