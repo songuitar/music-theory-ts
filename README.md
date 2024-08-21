@@ -1,0 +1,1 @@
+#Typescript Object Oriented Style library for dealing with music theory

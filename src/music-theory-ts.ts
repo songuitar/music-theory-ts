@@ -1,0 +1,5 @@
+export * from './lib/models/note'
+export * from './lib/models/harmonicSequence'
+export * from './lib/models/scale'
+export * from './lib/models/chord'
+export * from './lib/models/circleOfFifths'
