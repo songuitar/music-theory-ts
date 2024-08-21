@@ -1,36 +1,35 @@
-import {Note} from './note';
+import { Note } from './note'
 
-export interface ChromaticScale {
-  [key:string]: number
+interface ChromaticScaleView {
+  [key: string]: number
 }
 
 export class Scale {
-
-  readonly chromatic: ChromaticScale
+  readonly chromatic: ChromaticScaleView
 
   constructor(public key: Note) {
     this.chromatic = Scale.toChromatic(key)
   }
 
-  static toChromatic(key: Note) {
-    let count = 0;
-    const scale: ChromaticScale = {};
-    const allKeys = Note.getAll();
+  static toChromatic(key: Note): ChromaticScaleView {
+    let count = 0
+    const scale: ChromaticScaleView = {}
+    const allKeys = Note.getAll()
     while (count < 12) {
       for (let i = 0; i < allKeys.length; i++) {
-        const note = allKeys[i];
+        const note = allKeys[i]
         if (count == 0 && note == key.toString()) {
-          scale[note] = count;
-          count++;
-        }  else if (count > 0) {
+          scale[note] = count
+          count++
+        } else if (count > 0) {
           if (note == key.toString()) {
-            return scale;
+            return scale
           }
-          scale[note] = count;
-          count++;
+          scale[note] = count
+          count++
         }
       }
     }
-    return scale;
+    return scale
   }
 }
