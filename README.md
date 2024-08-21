@@ -1,4 +1,4 @@
-# Typescript Object Oriented Style library for dealing with music theory
+# Typescript object-oriented library for dealing with music theory
 
 **Example usage**
 
@@ -23,3 +23,5 @@ CSharpMinorTriad.map((note: Note) => {
 
 ```
 
+
+*And many other methods yet to describe here...*
