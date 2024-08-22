@@ -6,10 +6,12 @@ export enum ChordType {
 }
 
 export class Chord {
+  static readonly minorEntrySignature = 'M'
+
   constructor(public readonly key: Note, public readonly type: ChordType) {}
 
   toString() {
-    return this.key.toString() + (this.type == ChordType.minor ? 'm' : '')
+    return this.key.toString() + (this.type == ChordType.minor ? Chord.minorEntrySignature : '')
   }
 
   isMinor() {
@@ -71,11 +73,11 @@ export class Chord {
   }
 
   static resolveTypeFromConventionalNotation(typeContainingString: string) {
-    return typeContainingString.toUpperCase().indexOf('M') != -1 ? ChordType.minor : ChordType.major
+    return typeContainingString.toUpperCase().indexOf(this.minorEntrySignature.toUpperCase()) != -1 ? ChordType.minor : ChordType.major
   }
 
   static resolveKeyFromConventionalNotation(chord: string) {
-    return Note.fromString(chord.toUpperCase().replace('M', ''))
+    return Note.fromString(chord.toUpperCase().replace(this.minorEntrySignature.toUpperCase(), ''))
   }
 
   static joinNotesToString(notes: Note[]) {

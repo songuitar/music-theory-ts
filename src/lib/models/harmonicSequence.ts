@@ -4,7 +4,6 @@ import { Note } from './note'
 import { CircleOfFifths } from './circleOfFifths'
 
 export class HarmonicSequence {
-  static minorEntrySignature = 'M'
 
   readonly digitized: string[]
   readonly keyChord: Chord
@@ -27,6 +26,10 @@ export class HarmonicSequence {
       ),
       keyChord
     )
+  }
+
+  isSameHarmony(compareWith: HarmonicSequence): boolean {
+    return this.digitized.join('') === compareWith.digitized.join('')
   }
 
   transpose(newKey: Note): HarmonicSequence {
@@ -78,7 +81,7 @@ export class HarmonicSequence {
     chords.forEach(chord => {
       digitized.push(
         HarmonicSequence.resolveKeyOffset(keyNote, chord.key, keyScale).toString() +
-          (chord.type == ChordType.minor ? HarmonicSequence.minorEntrySignature : '')
+          (chord.type == ChordType.minor ? Chord.minorEntrySignature : '')
       )
     })
 
@@ -90,7 +93,7 @@ export class HarmonicSequence {
   }
 
   private static resolveChordByStringOffset(offset: string, keyScale: Scale): Chord {
-    const intOffset = Number(offset.replace(HarmonicSequence.minorEntrySignature, ''))
+    const intOffset = Number(offset.replace(Chord.minorEntrySignature, ''))
     const type = Chord.resolveTypeFromConventionalNotation(offset)
 
     return new Chord(

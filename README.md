@@ -23,4 +23,14 @@ CSharpMinorTriad.map((note: Note) => note.toString()).join(',') // 'C#,E,G#'
 ```
 
 
+*Dealing with sequence of chords (harmony)*
+```javascript
+    const AmDm = HarmonicSequence.fromStringChords(['Am', 'Dm'], 'A')
+    const EmAm = HarmonicSequence.fromStringChords(['Em', 'Am'], 'E')
+
+    AmDm.isSameHarmony(EmAm) // true
+
+```
+
+
 *And many other methods yet to describe here...*
