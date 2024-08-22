@@ -5,8 +5,6 @@ describe('CircleOfFifths', () => {
 
     const circle = CircleOfFifths.create();
 
-    console.log(circle)
-
-    expect(1).toEqual(1);
+    expect(circle.majorChord.isMajor).toBeTruthy();
   });
 });
